@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useReducer } from "react";
+import { cityReducer } from "./Reducers/cityReducer";
+import styles from "./Styles/App.module.css";
+import SearchField from "./Components/SearchField";
+import VerticalSpacer from "./Components/VerticalSpacer";
+import WeatherInfo from "./Components/WeatherInfo";
+const initialState = {
+  cityName: "",
+  cityData: null,
+  cityNotFound: false,
+};
+export const CityContext = React.createContext();
 function App() {
+  const [state, dispatch] = useReducer(cityReducer, initialState);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CityContext.Provider value={{ state, dispatch }}>
+      <div className={styles.app}>
+        <SearchField />
+        <VerticalSpacer space={"1rem"} />
+        {state.cityName.length !==0? <WeatherInfo /> : <p>No City Entered</p>}
+      </div>
+    </CityContext.Provider>
   );
 }
 

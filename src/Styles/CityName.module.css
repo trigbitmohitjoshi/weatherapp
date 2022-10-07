@@ -1,0 +1,17 @@
+.cityName {
+  display: flex;
+  align-items: center;
+}
+.cityName > * {
+  color: var(--color-p2);
+  font-size: 1.5rem;
+}
+.cityName h1 {
+  margin-left: 0.5rem;
+  font-size: 1.8rem;
+}
+.weatherDescription{
+  font-weight: 600;
+  font-size: 1rem;
+  color: blue;
+}
