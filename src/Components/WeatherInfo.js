@@ -11,7 +11,7 @@ function WeatherInfo() {
     return <p>City Not Found</p>;
   }
   if (!state.cityData) {
-    return <p>Click on Search</p>;
+    return <p>Loading...</p>;
   }
   return (
     <>

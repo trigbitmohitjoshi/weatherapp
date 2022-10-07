@@ -1,6 +1,6 @@
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import { CityContext } from "../App";
 import getCityWeatherData from "../GetCityWeatherData";
 import {
@@ -9,12 +9,17 @@ import {
   SET_CITY_NOT_FOUND,
 } from "../Utils/Constants";
 import styles from "../Styles/SearchField.module.css";
+import debounceSearch from "../Utils/debounceSearch";
 function SearchField() {
   const searchFieldRef = React.createRef();
   const { state, dispatch } = useContext(CityContext);
+  const { current: decoratedWeatherData } = useRef(
+    debounceSearch(getData, 3000)
+  );
   useEffect(() => {
     searchFieldRef.current.focus();
   }, []);
+
   function getData(cityName) {
     getCityWeatherData(cityName.toLowerCase())
       .then((res) => {
@@ -38,6 +43,7 @@ function SearchField() {
         });
       });
   }
+
   const handleFieldChange = (e) => {
     dispatch({
       type: SET_CITY_NAME,
@@ -64,12 +70,14 @@ function SearchField() {
       });
     }
   };
+
   return (
     <div className={styles.searchField}>
       <input
         type={"text"}
         value={state.cityName}
         onChange={handleFieldChange}
+        onInput={decoratedWeatherData}
         placeholder="Enter a City"
         ref={searchFieldRef}
       />
@@ -81,4 +89,4 @@ function SearchField() {
   );
 }
 
-export default SearchField;
+export default React.memo(SearchField);
