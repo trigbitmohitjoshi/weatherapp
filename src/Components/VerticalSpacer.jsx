@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 function VerticalSpacer({ space }) {
   const spacerRef = React.createRef();
-  useEffect(() => {
+  React.useEffect(() => {
     spacerRef.current.style.marginTop = space;
   }, []);
 

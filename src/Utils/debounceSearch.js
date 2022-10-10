@@ -1,12 +1,12 @@
 function debounceSearch(callback, delay) {
   let timeoutId;
-  return function (...args) {
+  return function (cityName) {
     if (timeoutId) {
       clearTimeout(timeoutId);
     }
     timeoutId = setTimeout(() => {
-      callback.call(this, args[0].target.value);
+      callback.call(this, cityName);
     }, delay);
   };
 }
-export default debounceSearch;
+export { debounceSearch };

@@ -1,12 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { CityContext } from "../App";
 import CityName from "./CityName";
 import TempInfo from "./TempInfo";
 import VerticalSpacer from "./VerticalSpacer";
 import WindInfo from "./WindInfo";
 
-function WeatherInfo() {
-  const { state } = useContext(CityContext);
+const WeatherInfo = () => {
+  const { state } = React.useContext(CityContext);
   if (state.cityNotFound) {
     return <p>City Not Found</p>;
   }
@@ -17,11 +17,11 @@ function WeatherInfo() {
     <>
       <CityName cityData={state.cityData} />
       <VerticalSpacer space={"0.4rem"} />
-      <TempInfo cityData={state.cityData} />
+      <TempInfo cityTempInfo={state.cityData.main} />
       <VerticalSpacer space={"0.8rem"} />
-      <WindInfo cityData={state.cityData} />
+      <WindInfo cityWindInfo={state.cityData.wind} />
     </>
   );
-}
+};
 
 export default WeatherInfo;

@@ -1,8 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-import  styles  from "../Styles/CityName.module.css";
-function CityName({ cityData }) {
+import styles from "../Styles/CityName.module.css";
+const CityName = ({ cityData }) => {
   return (
     <>
       <div className={styles.cityName}>
@@ -16,6 +16,6 @@ function CityName({ cityData }) {
       </div>
     </>
   );
-}
+};
 
 export default CityName;
