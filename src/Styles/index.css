@@ -13,9 +13,6 @@
     box-sizing: border-box;
 }
 body{
-    display: grid;
-    place-content: center;
-    min-height: 100vh;
     background-color: var(--color-bg);
     font-family: var(--ff);
 }

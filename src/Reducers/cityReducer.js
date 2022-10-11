@@ -1,4 +1,5 @@
 import {
+  FAV_CITIES,
   SET_CITY_DATA,
   SET_CITY_NAME,
   SET_CITY_NOT_FOUND,
@@ -17,6 +18,8 @@ export const cityReducer = (state, action) => {
       return { ...state, cityData: action.payload };
     case SET_CITY_NOT_FOUND:
       return { ...state, cityNotFound: action.payload };
+    case FAV_CITIES:
+      return { ...state, favCities: action.payload };
     default:
       return state;
   }
