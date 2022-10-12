@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../Styles/FavCity.module.css";
+import FavCityStyles from "../Styles/FavCity.styles";
 import { CityContext } from "../App";
 import { getCityWeatherData } from "../Api/getCityWeatherData";
 import { useRemoveFavCityFromLS } from "../Custom Hooks/useRemoveFavCityFromLS";
@@ -38,7 +38,7 @@ const FavCities = ({ favCities }) => {
     <>
       {favCities.map((cityName, index) => {
         return (
-          <div className={styles.favCitiesItem} key={index}>
+          <FavCityStyles.FavCityItem key={index}>
             <p
               onClick={() => {
                 loadFavCityData(cityName);
@@ -47,7 +47,7 @@ const FavCities = ({ favCities }) => {
               {cityName}
             </p>
             <button onClick={() => removeFavFromLS(cityName)}>Remove</button>
-          </div>
+          </FavCityStyles.FavCityItem>
         );
       })}
     </>

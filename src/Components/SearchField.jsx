@@ -1,6 +1,6 @@
 import React from "react";
+import SearchFieldContainer from "../Styles/SearchField.styles";
 import { CityContext } from "../App";
-import styles from "../Styles/SearchField.module.css";
 import { debounceSearch } from "../Utils/debounceSearch";
 import { getCityWeatherData } from "../Api/getCityWeatherData";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
@@ -12,29 +12,32 @@ import {
 } from "../Utils/Constants";
 const SearchField = () => {
   const { state, dispatch } = React.useContext(CityContext);
-  const getData = React.useCallback((cityName) => {
-    getCityWeatherData(cityName.toLowerCase())
-      .then((res) => {
-        dispatch({
-          type: SET_CITY_DATA,
-          payload: res.data,
+  const getData = React.useCallback(
+    (cityName) => {
+      getCityWeatherData(cityName.toLowerCase())
+        .then((res) => {
+          dispatch({
+            type: SET_CITY_DATA,
+            payload: res.data,
+          });
+          dispatch({
+            type: SET_CITY_NOT_FOUND,
+            payload: false,
+          });
+        })
+        .catch((error) => {
+          dispatch({
+            type: SET_CITY_DATA,
+            payload: null,
+          });
+          dispatch({
+            type: SET_CITY_NOT_FOUND,
+            payload: true,
+          });
         });
-        dispatch({
-          type: SET_CITY_NOT_FOUND,
-          payload: false,
-        });
-      })
-      .catch((error) => {
-        dispatch({
-          type: SET_CITY_DATA,
-          payload: null,
-        });
-        dispatch({
-          type: SET_CITY_NOT_FOUND,
-          payload: true,
-        });
-      });
-  }, [dispatch]);
+    },
+    [dispatch]
+  );
   const { current: decoratedWeatherData } = React.useRef(
     debounceSearch(getData, 3000)
   );
@@ -53,7 +56,7 @@ const SearchField = () => {
     <FontAwesomeIcon icon={faSearch} onClick={() => getData(state.cityName)} />
   );
   return (
-    <div className={styles.searchField}>
+    <SearchFieldContainer>
       <input
         type={"text"}
         value={state.cityName}
@@ -62,7 +65,7 @@ const SearchField = () => {
         autoFocus
       />
       {searchButton}
-    </div>
+    </SearchFieldContainer>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../Styles/AddToFavButton.module.css";
+import AddandRemoveFavContainer from "../Styles/AddandRemoveFavButton.styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { CityContext } from "../App";
@@ -9,14 +9,11 @@ const AddToFavButton = () => {
   const addFavToLS = useAddFavCityToLS();
   return (
     <>
-      <div
-        className={styles.addToFavButton}
-        onClick={() => addFavToLS(state.cityName)}
-      >
+      <AddandRemoveFavContainer type='addToFavBtn' onClick={() => addFavToLS(state.cityName)}>
         <p>Add To Fav</p>
         <span />
         <FontAwesomeIcon icon={faStar} />
-      </div>
+      </AddandRemoveFavContainer>
     </>
   );
 };

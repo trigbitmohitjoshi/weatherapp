@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../Styles/TempInfo.module.css";
+import TempInfoContainer from "../Styles/TempInfo.styles";
 import { kelvinToCelsius } from "../Utils/KelvinToCelsius";
 const TempInfo = ({ cityTempInfo }) => {
   const currentTemp = kelvinToCelsius(cityTempInfo.temp).toFixed(1);
@@ -8,7 +8,7 @@ const TempInfo = ({ cityTempInfo }) => {
   const feelsLikeTemp = kelvinToCelsius(cityTempInfo.feels_like).toFixed(1);
   return (
     <>
-      <div className={styles.tempInfo}>
+      <TempInfoContainer>
         <h2>{currentTemp} &#8451;</h2>
         <p>Feels Like {feelsLikeTemp} &#8451;</p>
         <div>
@@ -16,7 +16,7 @@ const TempInfo = ({ cityTempInfo }) => {
           <p>Min Temp {minTemp} &#8451;</p>
           <p>Humidity {cityTempInfo.humidity}%</p>
         </div>
-      </div>
+      </TempInfoContainer>
     </>
   );
 }

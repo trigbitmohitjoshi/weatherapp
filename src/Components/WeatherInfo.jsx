@@ -1,6 +1,6 @@
 import React from "react";
 import { CityContext } from "../App";
-import styles from "../Styles/WeatherInfo.module.css";
+import WeatherInfoContainer from "../Styles/WeatherInfo.styles";
 import CityName from "./CityName";
 import TempInfo from "./TempInfo";
 import VerticalSpacer from "./VerticalSpacer";
@@ -14,7 +14,7 @@ const WeatherInfo = () => {
   }
   return (
     <>
-      <div className={styles.weatherInfo}>
+      <WeatherInfoContainer>
         <CityName cityData={state.cityData} />
         <VerticalSpacer space={"0.4rem"} />
         <TempInfo cityTempInfo={state.cityData.main} />
@@ -26,7 +26,7 @@ const WeatherInfo = () => {
         ) : (
           <AddToFavButton />
         )}
-      </div>
+      </WeatherInfoContainer>
     </>
   );
 };

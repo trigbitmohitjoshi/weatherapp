@@ -1,17 +1,19 @@
 import React from "react";
 import { cityReducer } from "./Reducers/cityReducer";
 import { FAV_CITIES } from "./Utils/Constants";
-import styles from "./Styles/App.module.css";
+import AppStyles from "./Styles/App.styles.js";
 import SearchField from "./Components/SearchField";
 import VerticalSpacer from "./Components/VerticalSpacer";
 import WeatherInfo from "./Components/WeatherInfo";
 import FavCity from "./Components/FavCity";
+import IndexGlobalStyle from "./Styles/index.styles";
 const initialState = {
   cityName: "",
   cityData: null,
   cityNotFound: false,
   favCities: [],
 };
+
 export const CityContext = React.createContext();
 const App = () => {
   const [state, dispatch] = React.useReducer(cityReducer, initialState);
@@ -24,8 +26,9 @@ const App = () => {
 
   return (
     <CityContext.Provider value={{ state, dispatch }}>
-      <div className={styles.main}>
-        <div className={styles.app}>
+      <IndexGlobalStyle />
+      <AppStyles.MainContainer>
+        <AppStyles.AppContainer>
           <SearchField />
           <VerticalSpacer space={"1rem"} />
           {state.cityName.length !== 0 ? (
@@ -37,11 +40,11 @@ const App = () => {
           ) : (
             <p>No City Entered</p>
           )}
-        </div>
-        <div className={styles.favCity}>
+        </AppStyles.AppContainer>
+        <AppStyles.FavCityContainer>
           <FavCity />
-        </div>
-      </div>
+        </AppStyles.FavCityContainer>
+      </AppStyles.MainContainer>
     </CityContext.Provider>
   );
 };

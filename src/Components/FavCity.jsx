@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../Styles/FavCity.module.css";
+import FavCityStyles from "../Styles/FavCity.styles";
 import FavCities from "./FavCities";
 import { CityContext } from "../App";
 const FavCity = () => {
@@ -11,16 +11,16 @@ const FavCity = () => {
 
   return (
     <>
-      <div className={styles.heading}>
+      <FavCityStyles.Heading>
         <h1>Favourite City</h1>
-      </div>
-      <div className={styles.favCitiesContainer}>
+      </FavCityStyles.Heading>
+      <FavCityStyles.FavCityContainer>
         {favCities?.length > 0 ? (
           <FavCities favCities={favCities} />
         ) : (
           <p>No Fav City</p>
         )}
-      </div>
+      </FavCityStyles.FavCityContainer>
     </>
   );
 };
