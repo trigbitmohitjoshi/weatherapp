@@ -8,6 +8,8 @@ import {
   SET_CITY_NAME,
   SET_CITY_NOT_FOUND,
 } from "../Utils/Constants";
+import { motion } from "framer-motion";
+import { FavCitiesVariants } from "../Animations/FavCity.animation";
 const FavCities = ({ favCities }) => {
   const { dispatch } = React.useContext(CityContext);
   const removeFavFromLS = useRemoveFavCityFromLS();
@@ -38,7 +40,12 @@ const FavCities = ({ favCities }) => {
     <>
       {favCities.map((cityName, index) => {
         return (
-          <FavCityStyles.FavCityItem key={index}>
+          <FavCityStyles.FavCityItem
+            key={index}
+            as={motion.div}
+            variants={FavCitiesVariants}
+            whileHover="hover"
+          >
             <p
               onClick={() => {
                 loadFavCityData(cityName);

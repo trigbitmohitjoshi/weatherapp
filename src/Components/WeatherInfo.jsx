@@ -7,6 +7,8 @@ import VerticalSpacer from "./VerticalSpacer";
 import WindInfo from "./WindInfo";
 import RemoveFromFavButton from "./RemoveFromFavButton";
 import AddToFavButton from "./AddToFavButton";
+import { motion } from "framer-motion";
+import { WeatherInfoVariant } from "../Animations/WeatherInfo.animation";
 const WeatherInfo = () => {
   const { state } = React.useContext(CityContext);
   if (state.cityNotFound) {
@@ -14,7 +16,7 @@ const WeatherInfo = () => {
   }
   return (
     <>
-      <WeatherInfoContainer>
+      <WeatherInfoContainer as={motion.div} variants={WeatherInfoVariant}>
         <CityName cityData={state.cityData} />
         <VerticalSpacer space={"0.4rem"} />
         <TempInfo cityTempInfo={state.cityData.main} />

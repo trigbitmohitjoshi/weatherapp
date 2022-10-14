@@ -7,6 +7,8 @@ import VerticalSpacer from "./Components/VerticalSpacer";
 import WeatherInfo from "./Components/WeatherInfo";
 import FavCity from "./Components/FavCity";
 import IndexGlobalStyle from "./Styles/index.styles";
+import { motion } from "framer-motion";
+import { AppVariant } from "./Animations/App.animations";
 const initialState = {
   cityName: "",
   cityData: null,
@@ -27,7 +29,12 @@ const App = () => {
   return (
     <CityContext.Provider value={{ state, dispatch }}>
       <IndexGlobalStyle />
-      <AppStyles.MainContainer>
+      <AppStyles.MainContainer
+        as={motion.div}
+        variants={AppVariant}
+        initial="hidden"
+        animate="visible"
+      >
         <AppStyles.AppContainer>
           <SearchField />
           <VerticalSpacer space={"1rem"} />
