@@ -1,20 +1,20 @@
-export const AppVariant = {
+export const DetailedWeatherPageVariant = {
   hidden: {
     opacity: 0,
+    y: "100vh",
   },
   visible: {
     opacity: 1,
+    y: 0,
     transition: {
-      delay: 0.3,
-      duration: 1,
-      ease: "easeInOut",
-      when: "beforeChildren",
+      delay: 0.5,
+      duation: 1,
+      ease: "easeOut",
     },
   },
   exit: {
-    y: "-100vh",
+    y: "100vh",
     transition: {
-      delay: 0.25,
       duration: 1,
       ease: "easeOut",
     },

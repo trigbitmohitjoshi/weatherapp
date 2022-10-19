@@ -15,6 +15,7 @@ const HomePage = () => {
       variants={AppVariant}
       initial="hidden"
       animate="visible"
+      exit="exit"
     >
       <AppStyles.AppContainer>
         <SearchField />

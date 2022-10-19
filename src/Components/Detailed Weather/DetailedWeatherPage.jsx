@@ -7,6 +7,7 @@ import { getCityFiveDayWeatherData } from "../../Api/getCityWeatherData";
 import { SET_CITY_DATA, SET_CITY_NOT_FOUND } from "../../Utils/Constants";
 import CityInfo from "./CityInfo";
 import NextDaysWeatherInfo from "./NextDaysWeatherInfo";
+import { DetailedWeatherPageVariant } from "../../Animations/DetailedWeatherPage.animation";
 
 const initialState = {
   detailedCityData: null,
@@ -43,7 +44,9 @@ const DetailedWeatherPage = () => {
   if (state.detailedCityData == null) {
     return (
       <DetailedWeatherPageContainer>
-        <p>Loading...</p>
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+          Loading...
+        </motion.p>
       </DetailedWeatherPageContainer>
     );
   }
@@ -51,19 +54,10 @@ const DetailedWeatherPage = () => {
     <>
       <DetailedWeatherPageContainer
         as={motion.div}
-        initial={{
-          opacity: 0,
-          y: 100,
-        }}
-        animate={{
-          opacity: 1,
-          y: 0,
-        }}
-        transition={{
-          delay: 0.25,
-          duation: 1.2,
-          ease: "easeInOut",
-        }}
+        variants={DetailedWeatherPageVariant}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
       >
         <CityInfo cityInfo={state.detailedCityData.city} />
         <NextDaysWeatherInfo
