@@ -1,14 +1,11 @@
 import React from "react";
 import { cityReducer } from "./Reducers/cityReducer";
 import { FAV_CITIES } from "./Utils/Constants";
-import AppStyles from "./Styles/App.styles.js";
-import SearchField from "./Components/SearchField";
-import VerticalSpacer from "./Components/VerticalSpacer";
-import WeatherInfo from "./Components/WeatherInfo";
-import FavCity from "./Components/FavCity";
 import IndexGlobalStyle from "./Styles/index.styles";
-import { motion } from "framer-motion";
-import { AppVariant } from "./Animations/App.animations";
+import { Route, Routes } from "react-router-dom";
+import DetailedWeatherPage from "./Components/Detailed Weather/DetailedWeatherPage";
+import HomePage from "./Components/HomePage";
+import PageNotFound from "./Components/PageNotFound";
 const initialState = {
   cityName: "",
   cityData: null,
@@ -29,29 +26,14 @@ const App = () => {
   return (
     <CityContext.Provider value={{ state, dispatch }}>
       <IndexGlobalStyle />
-      <AppStyles.MainContainer
-        as={motion.div}
-        variants={AppVariant}
-        initial="hidden"
-        animate="visible"
-      >
-        <AppStyles.AppContainer>
-          <SearchField />
-          <VerticalSpacer space={"1rem"} />
-          {state.cityName.length !== 0 ? (
-            state.cityData ? (
-              <WeatherInfo />
-            ) : (
-              <p>Loading...</p>
-            )
-          ) : (
-            <p>No City Entered</p>
-          )}
-        </AppStyles.AppContainer>
-        <AppStyles.FavCityContainer>
-          <FavCity />
-        </AppStyles.FavCityContainer>
-      </AppStyles.MainContainer>
+      <Routes>
+        <Route index path="/" element={<HomePage />} />
+        <Route
+          path="more-details/:cityName"
+          element={<DetailedWeatherPage />}
+        />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
     </CityContext.Provider>
   );
 };
