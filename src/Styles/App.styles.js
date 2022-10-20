@@ -16,5 +16,5 @@ const AppContainer = styled.div`
 const FavCityContainer = styled.div`
   width: 100%;
 `;
-const AppStyles = { MainContainer, AppContainer, FavCityContainer }
+const AppStyles = { MainContainer, AppContainer, FavCityContainer };
 export default AppStyles;

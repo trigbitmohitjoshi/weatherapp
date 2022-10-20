@@ -4,14 +4,12 @@ import PageNotFoundContainer from "../Styles/PageNotFound.styles";
 
 const PageNotFound = () => {
   return (
-    <>
-      <PageNotFoundContainer>
-        <h2>Page Not Found</h2>
-        <Link to="/" replace>
-          Go to Home
-        </Link>
-      </PageNotFoundContainer>
-    </>
+    <PageNotFoundContainer>
+      <h2>Page Not Found</h2>
+      <Link to="/" replace>
+        Go to Home
+      </Link>
+    </PageNotFoundContainer>
   );
 };
 

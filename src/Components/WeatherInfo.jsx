@@ -16,7 +16,6 @@ const WeatherInfo = () => {
     return <p>City Not Found</p>;
   }
   return (
-    <>
     <WeatherInfoContainer as={motion.div} variants={WeatherInfoVariant}>
       <CityName cityData={state.cityData} />
       <VerticalSpacer space={"0.4rem"} />
@@ -32,7 +31,6 @@ const WeatherInfo = () => {
         <AddToFavButton />
       )}
     </WeatherInfoContainer>
-  </>
   );
 };
 

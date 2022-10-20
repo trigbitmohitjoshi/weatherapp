@@ -7,13 +7,13 @@ const CityInfoContainer = styled.div`
   background-color: hsl(0, 0%, 88%);
   padding: 0.4rem 0;
   border-radius: 0.6rem;
-  cursor: pointer; 
+  cursor: pointer;
   section:nth-of-type(1) {
     div:nth-of-type(1) {
       color: var(--color-p2);
       display: flex;
       align-items: center;
-      gap:0.4rem
+      gap: 0.4rem;
     }
     div:nth-of-type(2) {
       p {

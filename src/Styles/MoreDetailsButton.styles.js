@@ -10,8 +10,8 @@ const MoreDetailsContainer = styled.div`
   p {
     font-weight: 500;
   }
-  p:hover{
-    text-decoration:underline
+  p:hover {
+    text-decoration: underline;
   }
   span {
     margin-inline: 0.2rem;

@@ -1,16 +1,20 @@
-import {
-  faLocationArrow,
-} from "@fortawesome/free-solid-svg-icons";
+import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { degToDirection } from "./DegToDirection";
 import { kelvinToCelsius } from "./KelvinToCelsius";
+import { motion } from "framer-motion";
 
 export const constructNextDaysWeatherJSX = (constructedObject) => {
   const jsxObj = {};
   for (let day in constructedObject) {
     constructedObject[day].forEach((value) => {
       const jsx = (
-        <div className="weather">
+        <motion.div
+          className="weather"
+          whileHover={{
+            backgroundColor: "hsl(0, 0%, 75%)",
+          }}
+        >
           <h3>{value.weather.description}</h3>
           <h4>At {value.time}</h4>
           <p>
@@ -45,7 +49,7 @@ export const constructNextDaysWeatherJSX = (constructedObject) => {
               {value.wind.speed}m/s {degToDirection(value.wind.deg)}
             </p>
           </div>
-        </div>
+        </motion.div>
       );
       jsxObj[day] = jsxObj[day] ? [...jsxObj[day], jsx] : [jsx];
     });

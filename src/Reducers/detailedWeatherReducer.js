@@ -8,8 +8,7 @@ export const detailedWeatherReducer = (state, action) => {
     case SET_CITY_DATA:
       return {
         ...state,
-        detailedCityData: action.payload,
-        cityName: action.cityName,
+        detailedCityData: action.payload,        
       };
     case SET_CITY_NOT_FOUND:
       return { ...state, cityNotFound: action.payload, cityData: null };

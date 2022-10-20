@@ -28,7 +28,7 @@ const App = () => {
   return (
     <CityContext.Provider value={{ state, dispatch }}>
       <IndexGlobalStyle />
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence mode='wait'>
         <Routes location={location} key={location.key}>
           <Route index path="/" element={<HomePage />} />
           <Route

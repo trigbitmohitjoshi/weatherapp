@@ -4,6 +4,7 @@ const NextDaysWeatherInfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  gap: 0.6rem;
   .week-day-box {
     background-color: hsl(0, 0%, 88%);
     padding: 0.6rem;
@@ -29,13 +30,12 @@ const NextDaysWeatherInfoContainer = styled.div`
       align-items: center;
       gap: 0.2rem;
       border-radius: 0.4rem;
-      background-color: hsl(0,0%,82%);
+      background-color: hsl(0, 0%, 82%);
       padding: 0.4rem 0;
-      transition: 0.5s all;
-      >h3{
-        color:var(--color-p2);             
+      > h3 {
+        color: var(--color-p2);
       }
-      >h4{
+      > h4 {
         color: blue;
       }
       > p {
@@ -50,8 +50,8 @@ const NextDaysWeatherInfoContainer = styled.div`
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 0.4rem;        
-        > svg{
+        gap: 0.4rem;
+        > svg {
           color: var(--color-p1);
         }
         > p {
@@ -59,10 +59,6 @@ const NextDaysWeatherInfoContainer = styled.div`
           color: blue;
         }
       }
-    }
-
-    .weather:hover {
-      background-color: hsl(0, 0%, 75%);
     }
   }
 `;

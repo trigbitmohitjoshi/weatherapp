@@ -51,20 +51,16 @@ const DetailedWeatherPage = () => {
     );
   }
   return (
-    <>
-      <DetailedWeatherPageContainer
-        as={motion.div}
-        variants={DetailedWeatherPageVariant}
-        initial="hidden"
-        animate="visible"
-        exit="exit"
-      >
-        <CityInfo cityInfo={state.detailedCityData.city} />
-        <NextDaysWeatherInfo
-          nextDaysWeatherInfo={state.detailedCityData.list}
-        />
-      </DetailedWeatherPageContainer>
-    </>
+    <DetailedWeatherPageContainer
+      as={motion.div}
+      variants={DetailedWeatherPageVariant}
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+    >
+      <CityInfo cityInfo={state.detailedCityData.city} />
+      <NextDaysWeatherInfo nextDaysWeatherInfo={state.detailedCityData.list} />
+    </DetailedWeatherPageContainer>
   );
 };
 export default React.memo(DetailedWeatherPage);

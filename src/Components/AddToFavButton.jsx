@@ -8,21 +8,19 @@ import { motion } from "framer-motion";
 import { AddandRemoveFavVariant } from "../Animations/AddandRemoveFavButton.animation";
 const AddToFavButton = () => {
   const { state } = React.useContext(CityContext);
-  const addFavToLS = useAddFavCityToLS();
+  const addFavToLS = React.useCallback(useAddFavCityToLS(), []);
+  const favIcon = React.useMemo(() => <FontAwesomeIcon icon={faStar} />, []);
   return (
-    <>
-      <AddandRemoveFavContainer
-        type="addToFavBtn"
-        onClick={() => addFavToLS(state.cityName)}
-        as={motion.div}
-        variants={AddandRemoveFavVariant}
-        whileHover="hover"
-      >
-        <p>Add To Fav</p>
-        <span />
-        <FontAwesomeIcon icon={faStar} />
-      </AddandRemoveFavContainer>
-    </>
+    <AddandRemoveFavContainer
+      type="addToFavBtn"
+      onClick={() => addFavToLS(state.cityName)}
+      as={motion.div}
+      variants={AddandRemoveFavVariant}
+      whileHover="hover"
+    >
+      <p>Add To Fav</p>
+      {favIcon}
+    </AddandRemoveFavContainer>
   );
 };
 
