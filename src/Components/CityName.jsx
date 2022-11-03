@@ -1,18 +1,19 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
-import CityNameStyle from "../Styles/CityName.styles";
+import CityNameStyle from "../Styles/CityName";
 const CityName = ({ cityData }) => {
+  const { name, sys, weather } = cityData;
   return (
     <>
       <CityNameStyle.CityNameContainer>
         <FontAwesomeIcon icon={faMapMarkerAlt} />
         <h1>
-          {cityData.name} , {cityData.sys.country}
+          {name} , {sys.country}
         </h1>
       </CityNameStyle.CityNameContainer>
       <CityNameStyle.WeatherDescriptionContainer>
-        <p>{cityData.weather[0].description}</p>
+        <p>{weather[0].description}</p>
       </CityNameStyle.WeatherDescriptionContainer>
     </>
   );

@@ -1,15 +1,14 @@
 import React from "react";
-import AddandRemoveFavContainer from "../Styles/AddandRemoveFavButton.styles";
+import AddandRemoveFavContainer from "../Styles/AddandRemoveFavButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { CityContext } from "../App";
 import { useAddFavCityToLS } from "../Custom Hooks/useAddFavCityToLS";
 import { motion } from "framer-motion";
-import { AddandRemoveFavVariant } from "../Animations/AddandRemoveFavButton.animation";
+import { AddandRemoveFavVariant } from "../Animations/AddandRemoveFavButton";
 const AddToFavButton = () => {
   const { state } = React.useContext(CityContext);
-  const addFavToLS = React.useCallback(useAddFavCityToLS(), []);
-  const favIcon = React.useMemo(() => <FontAwesomeIcon icon={faStar} />, []);
+  const addFavToLS = useAddFavCityToLS();
   return (
     <AddandRemoveFavContainer
       type="addToFavBtn"
@@ -19,7 +18,7 @@ const AddToFavButton = () => {
       whileHover="hover"
     >
       <p>Add To Fav</p>
-      {favIcon}
+      <FontAwesomeIcon icon={faStar} />
     </AddandRemoveFavContainer>
   );
 };

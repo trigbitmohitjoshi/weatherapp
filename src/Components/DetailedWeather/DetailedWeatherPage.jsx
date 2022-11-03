@@ -1,13 +1,13 @@
 import React from "react";
-import DetailedWeatherPageContainer from "../../Styles/DetailedWeatherPage.styles";
+import DetailedWeatherPageContainer from "../../Styles/DetailedWeatherPage";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import { detailedWeatherReducer } from "../../Reducers/detailedWeatherReducer";
 import { getCityFiveDayWeatherData } from "../../Api/getCityWeatherData";
-import { SET_CITY_DATA, SET_CITY_NOT_FOUND } from "../../Utils/Constants";
+import { SET_CITY_DATA, SET_CITY_NOT_FOUND } from "../../Utils/constants";
 import CityInfo from "./CityInfo";
 import NextDaysWeatherInfo from "./NextDaysWeatherInfo";
-import { DetailedWeatherPageVariant } from "../../Animations/DetailedWeatherPage.animation";
+import { DetailedWeatherPageVariant } from "../../Animations/DetailedWeatherPage";
 
 const initialState = {
   detailedCityData: null,
@@ -19,6 +19,7 @@ const DetailedWeatherPage = () => {
     detailedWeatherReducer,
     initialState
   );
+  const { detailedCityData, cityNotFound } = state;
 
   React.useEffect(() => {
     getCityFiveDayWeatherData(cityName)
@@ -28,29 +29,16 @@ const DetailedWeatherPage = () => {
           payload: res.data,
         });
       })
-      .catch((error) => {
+      .catch(() => {
         dispatch({ type: SET_CITY_NOT_FOUND, payload: true });
       });
   }, [cityName]);
 
-  if (state.cityNotFound) {
-    return (
-      <DetailedWeatherPageContainer>
-        <p>City Not Found</p>
-      </DetailedWeatherPageContainer>
-    );
-  }
-
-  if (state.detailedCityData == null) {
-    return (
-      <DetailedWeatherPageContainer>
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          Loading...
-        </motion.p>
-      </DetailedWeatherPageContainer>
-    );
-  }
-  return (
+  return cityNotFound ? (
+    <DetailedWeatherPageContainer>
+      <p>City Not Found</p>
+    </DetailedWeatherPageContainer>
+  ) : detailedCityData ? (
     <DetailedWeatherPageContainer
       as={motion.div}
       variants={DetailedWeatherPageVariant}
@@ -58,9 +46,13 @@ const DetailedWeatherPage = () => {
       animate="visible"
       exit="exit"
     >
-      <CityInfo cityInfo={state.detailedCityData.city} />
-      <NextDaysWeatherInfo nextDaysWeatherInfo={state.detailedCityData.list} />
+      <CityInfo cityInfo={detailedCityData.city} />
+      <NextDaysWeatherInfo nextDaysWeatherInfoList={detailedCityData.list} />
+    </DetailedWeatherPageContainer>
+  ) : (
+    <DetailedWeatherPageContainer>
+      <p>Loading...</p>
     </DetailedWeatherPageContainer>
   );
 };
-export default React.memo(DetailedWeatherPage);
+export default DetailedWeatherPage;

@@ -1,6 +1,6 @@
 import React from "react";
-import TempInfoContainer from "../Styles/TempInfo.styles";
-import { kelvinToCelsius } from "../Utils/KelvinToCelsius";
+import TempInfoContainer from "../Styles/TempInfo";
+import { kelvinToCelsius } from "../Utils/kelvinToCelsius";
 const TempInfo = ({ cityTempInfo }) => {
   const currentTemp = kelvinToCelsius(cityTempInfo.temp).toFixed(1);
   const maxTemp = kelvinToCelsius(cityTempInfo.temp_max).toFixed(1);

@@ -1,41 +1,17 @@
 import React from "react";
-import FavCityStyles from "../Styles/FavCity.styles";
+import FavCityStyles from "../Styles/FavCity";
 import { CityContext } from "../App";
-import { getCityWeatherData } from "../Api/getCityWeatherData";
 import { useRemoveFavCityFromLS } from "../Custom Hooks/useRemoveFavCityFromLS";
-import {
-  SET_CITY_DATA,
-  SET_CITY_NAME,
-  SET_CITY_NOT_FOUND,
-} from "../Utils/Constants";
+import { SET_CITY_NAME } from "../Utils/constants";
 import { motion } from "framer-motion";
-import { FavCitiesVariants } from "../Animations/FavCity.animation";
+import { FavCitiesVariants } from "../Animations/FavCity";
+import { useGetCityWeatherData } from "../Custom Hooks/useGetCityWeatherData";
 const FavCities = ({ favCities }) => {
   const { dispatch } = React.useContext(CityContext);
   const removeFavFromLS = useRemoveFavCityFromLS();
-  const loadFavCityData = (cityName) => {
-    getCityWeatherData(cityName.toLowerCase())
-      .then((res) => {
-        dispatch({
-          type: SET_CITY_NAME,
-          payload: cityName,
-        });
-        dispatch({
-          type: SET_CITY_DATA,
-          payload: res.data,
-        });
-      })
-      .catch((error) => {
-        dispatch({
-          type: SET_CITY_DATA,
-          payload: null,
-        });
-        dispatch({
-          type: SET_CITY_NOT_FOUND,
-          payload: true,
-        });
-      });
-  };
+
+  const loadFavCityData = useGetCityWeatherData();
+
   return (
     <>
       {favCities.map((cityName, index) => {
@@ -48,6 +24,10 @@ const FavCities = ({ favCities }) => {
           >
             <p
               onClick={() => {
+                dispatch({
+                  type: SET_CITY_NAME,
+                  payload: cityName,
+                });
                 loadFavCityData(cityName);
               }}
             >

@@ -1,12 +1,12 @@
 import React from "react";
+import IndexGlobalStyle from "./Styles";
 import { cityReducer } from "./Reducers/cityReducer";
-import { FAV_CITIES } from "./Utils/Constants";
-import IndexGlobalStyle from "./Styles/index.styles";
+import { FAV_CITIES } from "./Utils/constants";
 import { Route, Routes, useLocation } from "react-router-dom";
-import DetailedWeatherPage from "./Components/Detailed Weather/DetailedWeatherPage";
+import { AnimatePresence } from "framer-motion";
 import HomePage from "./Components/HomePage";
 import PageNotFound from "./Components/PageNotFound";
-import { AnimatePresence } from "framer-motion";
+import DetailedWeatherPage from "./Components/DetailedWeather/DetailedWeatherPage";
 const initialState = {
   cityName: "",
   cityData: null,
@@ -28,7 +28,7 @@ const App = () => {
   return (
     <CityContext.Provider value={{ state, dispatch }}>
       <IndexGlobalStyle />
-      <AnimatePresence mode='wait'>
+      <AnimatePresence mode="wait">
         <Routes location={location} key={location.key}>
           <Route index path="/" element={<HomePage />} />
           <Route

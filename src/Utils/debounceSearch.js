@@ -1,11 +1,11 @@
 function debounceSearch(callback, delay) {
   let timeoutId;
-  return function (cityName) {
+  return (cityName) => {
     if (timeoutId) {
       clearTimeout(timeoutId);
     }
     timeoutId = setTimeout(() => {
-      callback.call(this, cityName);
+      if (cityName.length > 0) callback(cityName);
     }, delay);
   };
 }

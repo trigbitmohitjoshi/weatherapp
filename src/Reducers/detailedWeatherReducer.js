@@ -1,7 +1,7 @@
 import {
   SET_CITY_DATA,
   SET_CITY_NOT_FOUND,
-} from "../Utils/Constants";
+} from "../Utils/constants";
 
 export const detailedWeatherReducer = (state, action) => {
   switch (action.type) {    
