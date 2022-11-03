@@ -5,7 +5,7 @@ import { debounceSearch } from "../Utils/debounceSearch";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SET_CITY_NAME } from "../Utils/constants";
-import { useGetCityWeatherData } from "../Custom Hooks/useGetCityWeatherData";
+import { useGetCityWeatherData } from "../CustomHooks/useGetCityWeatherData";
 const SearchField = () => {
   const { state, dispatch } = React.useContext(CityContext);
 

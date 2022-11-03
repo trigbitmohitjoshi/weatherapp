@@ -1,11 +1,11 @@
 import React from "react";
 import FavCityStyles from "../Styles/FavCity";
 import { CityContext } from "../App";
-import { useRemoveFavCityFromLS } from "../Custom Hooks/useRemoveFavCityFromLS";
+import { useRemoveFavCityFromLS } from "../CustomHooks/useRemoveFavCityFromLS";
 import { SET_CITY_NAME } from "../Utils/constants";
 import { motion } from "framer-motion";
 import { FavCitiesVariants } from "../Animations/FavCity";
-import { useGetCityWeatherData } from "../Custom Hooks/useGetCityWeatherData";
+import { useGetCityWeatherData } from "../CustomHooks/useGetCityWeatherData";
 const FavCities = ({ favCities }) => {
   const { dispatch } = React.useContext(CityContext);
   const removeFavFromLS = useRemoveFavCityFromLS();

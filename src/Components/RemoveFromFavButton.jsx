@@ -2,7 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { CityContext } from "../App";
-import { useRemoveFavCityFromLS } from "../Custom Hooks/useRemoveFavCityFromLS.js";
+import { useRemoveFavCityFromLS } from "../CustomHooks/useRemoveFavCityFromLS.js";
 import AddandRemoveFavContainer from "../Styles/AddandRemoveFavButton";
 import { AddandRemoveFavVariant } from "../Animations/AddandRemoveFavButton";
 import { motion } from "framer-motion";

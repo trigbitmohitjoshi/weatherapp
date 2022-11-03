@@ -22,4 +22,4 @@ const TempInfoContainer = styled.div`
     font-weight: 400;
   }
 `;
-export default TempInfoContainer
+export default TempInfoContainer;

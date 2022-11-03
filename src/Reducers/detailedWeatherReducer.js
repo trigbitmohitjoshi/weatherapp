@@ -1,14 +1,11 @@
-import {
-  SET_CITY_DATA,
-  SET_CITY_NOT_FOUND,
-} from "../Utils/constants";
+import { SET_CITY_DATA, SET_CITY_NOT_FOUND } from "../Utils/constants";
 
 export const detailedWeatherReducer = (state, action) => {
-  switch (action.type) {    
+  switch (action.type) {
     case SET_CITY_DATA:
       return {
         ...state,
-        detailedCityData: action.payload,        
+        detailedCityData: action.payload,
       };
     case SET_CITY_NOT_FOUND:
       return { ...state, cityNotFound: action.payload, cityData: null };
