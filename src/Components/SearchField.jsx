@@ -16,7 +16,7 @@ const SearchField = () => {
 
   React.useEffect(() => {
     decoratedWeatherData(state.cityName);
-  }, [decoratedWeatherData, state.cityData, state.cityName]);
+  }, [decoratedWeatherData, state.cityName]);
 
   const handleFieldChange = (e) => {
     dispatch({
