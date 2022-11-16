@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import WindInfoContainer from "../Styles/WindInfo";
+import WindInfoContainer from "./WindInfoContainer";
 import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
 import { degToDirection } from "../Utils/degToDirection";
 const WindInfo = ({ cityWindInfo }) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import SearchFieldContainer from "../Styles/SearchField";
+import SearchFieldContainer from "./SearchFieldContainer";
 import { CityContext } from "../App";
 import { debounceSearch } from "../Utils/debounceSearch";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";

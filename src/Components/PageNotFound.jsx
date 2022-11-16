@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import PageNotFoundContainer from "../Styles/PageNotFound";
+import PageNotFoundContainer from "./PageNotFoundContainer";
 
 const PageNotFound = () => {
   return (

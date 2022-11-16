@@ -1,5 +1,5 @@
 import React from "react";
-import FavCityStyles from "../Styles/FavCity";
+import FavCityStyles from "./FavCityContainer";
 import { CityContext } from "../App";
 import { useRemoveFavCityFromLS } from "../CustomHooks/useRemoveFavCityFromLS";
 import { SET_CITY_NAME } from "../Utils/constants";

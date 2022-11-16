@@ -1,6 +1,6 @@
 import React from "react";
 import { CityContext } from "../App";
-import WeatherInfoContainer from "../Styles/WeatherInfo";
+import WeatherInfoContainer from "./WeatherInfoContainer";
 import CityName from "./CityName";
 import TempInfo from "./TempInfo";
 import VerticalSpacer from "./VerticalSpacer";

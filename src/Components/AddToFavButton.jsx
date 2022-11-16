@@ -1,5 +1,5 @@
 import React from "react";
-import AddandRemoveFavContainer from "../Styles/AddandRemoveFavButton";
+import AddandRemoveFavContainer from "./AddandRemoveFavButtonContainer";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { CityContext } from "../App";

@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
-const IndexGlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle`
 :root{
     /* colors */
     --color-bg: hsl(0, 0%, 93%);
@@ -27,4 +27,4 @@ input{
     font-weight: 400;
 }
 `;
-export default IndexGlobalStyle;
+export default GlobalStyle;

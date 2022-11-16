@@ -1,5 +1,5 @@
 import React from "react";
-import DetailedWeatherPageContainer from "../../Styles/DetailedWeatherPage";
+import DetailedWeatherPageContainer from "./DetailedWeatherPageContainer";
 import { motion } from "framer-motion";
 import { useParams } from "react-router-dom";
 import { detailedWeatherReducer } from "../../Reducers/detailedWeatherReducer";

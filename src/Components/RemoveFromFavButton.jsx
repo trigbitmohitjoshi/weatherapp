@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { CityContext } from "../App";
 import { useRemoveFavCityFromLS } from "../CustomHooks/useRemoveFavCityFromLS.js";
-import AddandRemoveFavContainer from "../Styles/AddandRemoveFavButton";
+import AddandRemoveFavContainer from "./AddandRemoveFavButtonContainer";
 import { AddandRemoveFavVariant } from "../Animations/AddandRemoveFavButton";
 import { motion } from "framer-motion";
 const RemoveFromFavButton = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import FavCityStyles from "../Styles/FavCity";
+import FavCityStyles from "./FavCityContainer";
 import FavCities from "./FavCities";
 import { CityContext } from "../App";
 const FavCity = () => {

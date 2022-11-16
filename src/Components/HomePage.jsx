@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { AppVariant } from "../Animations/App";
-import AppStyles from "../Styles/App.jsx";
+import AppStyles from "./AppContainer";
 import SearchField from "./SearchField";
 import VerticalSpacer from "./VerticalSpacer";
 import WeatherInfo from "./WeatherInfo";

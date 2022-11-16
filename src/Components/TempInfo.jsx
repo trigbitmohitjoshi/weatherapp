@@ -1,5 +1,5 @@
 import React from "react";
-import TempInfoContainer from "../Styles/TempInfo";
+import TempInfoContainer from "./TempInfoContainer";
 import { kelvinToCelsius } from "../Utils/kelvinToCelsius";
 const TempInfo = ({ cityTempInfo }) => {
   const currentTemp = kelvinToCelsius(cityTempInfo.temp).toFixed(1);

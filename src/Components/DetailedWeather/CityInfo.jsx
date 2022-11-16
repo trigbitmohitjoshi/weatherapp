@@ -2,7 +2,7 @@ import { faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import React from "react";
-import CityInfoContainer from "../../Styles/CityInfo";
+import CityInfoContainer from "./CityInfoContainer";
 import { unixToReadableFormat } from "../../Utils/unixTimeToReadableFormat";
 
 const CityInfo = ({ cityInfo }) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import NextDaysWeatherInfoContainer from "../../Styles/NextDaysWeatherInfo";
+import NextDaysWeatherInfoContainer from "./NextDaysWeatherInfoContainer";
 import { dateTimeToTime } from "../../Utils/dateTimeToTime";
 import { dateTimeToWeekDay } from "../../Utils/dateTimeToWeekDay";
 
